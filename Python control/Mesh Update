@@ -1,0 +1,12 @@
+import bge
+
+own = bge.logic.getCurrentController().owner
+
+empty = own.scene.objects["Guide"]
+char = own.scene.objects["Character"]
+treemesh = own.scene.objects["Tree Phy"]
+if empty.getDistanceTo(char) > 200:
+    empty.worldPosition = char.worldPosition
+    own.reinstancePhysicsMesh(evaluated=True)
+    treemesh.reinstancePhysicsMesh(evaluated=True)
+    
